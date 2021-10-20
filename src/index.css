@@ -1,0 +1,19 @@
+@import "~antd/dist/antd.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* $color1: #ecebf6;
+$color2: #8a8ba1;
+$color3: #272c48;
+$color4: #17173e;
+$color5: #d4357d;
+$color6: #ecb332;
+$color7: #27b8bf; */
+
+* {
+  margin: 0;
+  font-family: "Rubik", "Asap", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
