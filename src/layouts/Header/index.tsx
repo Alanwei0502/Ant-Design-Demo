@@ -1,10 +1,14 @@
+import { Fragment } from 'react';
 import { Layout, Input, Menu, Badge, Dropdown, Select } from 'antd'
 import { MenuUnfoldOutlined, MenuFoldOutlined, UserOutlined, NotificationOutlined, LogoutOutlined } from '@ant-design/icons'
 
 interface props {
   collapsed: boolean;
+  lang: string;
   toggle: () => void;
+  setLang: (value: string) => void;
 }
+
 const { Search } = Input;
 const { Option } = Select;
 
@@ -21,13 +25,14 @@ const fakeData = [
   },
 ]
 
-const Header = ({ collapsed, toggle }: props) => {
+const Header: React.FC<props> = ({ collapsed, toggle, setLang, lang }) => {
+  
 
   const noticeContent = (
     <Menu>
-      {fakeData.map((item: any) => {
+      {fakeData.map((item: any, index: number) => {
         return (
-          <>
+          <Fragment key={index}>
             <Menu.Item key={item.id}>
               <div className='flex items-center'>
                 {!item.isRead && <div className='w-2 h-2 rounded-full bg-red-400 mr-2' />}
@@ -35,7 +40,7 @@ const Header = ({ collapsed, toggle }: props) => {
               </div>
             </Menu.Item>
             <Menu.Divider className='m-0' />
-          </>
+          </Fragment>
         )
       })}
     </Menu>
@@ -46,10 +51,6 @@ const Header = ({ collapsed, toggle }: props) => {
       <Menu.Item key={0}>帳號資訊</Menu.Item>
     </Menu>
   );
-
-  const onChangeLocale = () => { }
-
-
 
   return (
     <Layout.Header className='flex justify-between px-1 items-center'>
@@ -62,11 +63,12 @@ const Header = ({ collapsed, toggle }: props) => {
       </div>
       <div className='flex text-white items-center justify-around w-64'>
         <Select
-          style={{ width: '100px' }}
-          onChange={onChangeLocale}
+          onChange={setLang}
+          defaultValue={lang}
+          className='w-24'
         >
-          <Option key='en_US' value='en_US'>English</Option>
-          <Option key='zh_TW' value='zh_TW'>中文</Option>
+          <Option key='enUS' value='enUS'>English</Option>
+          <Option key='zhTW' value='zhTW'>中文</Option>
         </Select>
 
         <Dropdown overlay={userDropdownContent} trigger={['click']} placement='bottomRight' arrow>

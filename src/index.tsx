@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'App';
 import reportWebVitals from 'reportWebVitals';
+import { setStorage, getStorage } from 'utils/webStorage';
 import 'index.css';
+
+!getStorage('lang', false) && setStorage('lang', 'zhTW', false);
 
 ReactDOM.render(
   <React.StrictMode>

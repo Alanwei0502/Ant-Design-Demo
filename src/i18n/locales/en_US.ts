@@ -10,6 +10,17 @@ const en_US = {
     INVESTMENT: 'Investment',
     TO_DO_LIST: 'To-do List',
   },
+  EXPENSES_TYPE:{
+    FOOD_DRINK: 'Food & Drink',
+    TRANSPORTATION: 'Transportation',
+    DAILY_SUPPLIES: 'Daily Supplies',
+    CLOTHES: 'Clothes',
+    EDUCATION: 'Education',
+    GIFT: 'Gift',
+    HOUSE_RENT: 'House Rent',
+    HAIRCUT: 'Haircut',
+    ENTERTAINMENT: 'Entertainment',
+  }
 }
 
 export default en_US;
